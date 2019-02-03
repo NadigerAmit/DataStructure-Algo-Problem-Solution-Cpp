@@ -56,19 +56,9 @@ void printLinkedInReverse(Node_t* root) {
 	return printLinkedInReverse(root->prev);
 }
 void printLinkedList(Node_t* root) {
-	static int i = 0;
-	i++;
-	printf("value of i %d\n",i);
-	if(i>8) return;
 	if(root == NULL) return;
 	    printf("%d\n",root->data);
 	return printLinkedList(root->next);
-}
-
-void printLinkedListStraigt(Node_t* root) {
-	if(root == NULL) return;
-	    printf("%d\n",root->data);
-	return printLinkedListStraigt(root->next);
 }
 
 void convertLinkedListTodoubleLinked(Node_t* root) {
@@ -97,7 +87,6 @@ bool isListSimilar(Node_t* firstList,Node_t* secondList) {
 }
 
 Node_t* dupliCateList(Node_t* root,Node_t** tail) {
-	//Node_t* tail = NULL;
 	if(root == NULL) return NULL;
 	Node_t* secondRoot= getNode(root->data);
 	secondRoot->next = dupliCateList(root->next,tail);
@@ -107,7 +96,6 @@ Node_t* dupliCateList(Node_t* root,Node_t** tail) {
 		*tail = secondRoot;
 	}
 	return secondRoot;  // Retruning head of list
-	//return tail;
 }
 
 void printLinkedListinReverse(Node_t* root) {
