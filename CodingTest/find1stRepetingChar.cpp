@@ -3,6 +3,7 @@
 #include<unordered_set>
 #include<string>
 using namespace std;
+// With Map 
 char get1stRepetingCharinString(string s) {
 	unordered_set<char> charSet;
 	int i =0;
@@ -13,6 +14,19 @@ char get1stRepetingCharinString(string s) {
 		charSet.insert(s.at(i));
 	}
 	return 1;
+}
+
+// Without Map
+char get1stRecurringChar(string str) {
+	for(int i = 1;i<str.length();i++) {
+		cout<<str[i]; 
+		if(str[i] == str[i-1]) {
+			cout<<"\nRepeated char = "<<str[i]; 
+			return str[i];
+		}
+	}
+	cout<<"Retruning no repeatation";
+	return 0;
 }
 
 int main() {
