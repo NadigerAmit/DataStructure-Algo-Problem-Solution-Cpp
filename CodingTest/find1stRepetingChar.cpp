@@ -13,15 +13,14 @@ char get1stRepetingCharinString(string s) {
 		}
 		charSet.insert(s.at(i));
 	}
-	return 1;
+	return 0;
 }
 
 // Without Map
 char get1stRecurringChar(string str) {
 	for(int i = 1;i<str.length();i++) {
-		cout<<str[i]; 
 		if(str[i] == str[i-1]) {
-			cout<<"\nRepeated char = "<<str[i]; 
+//			cout<<"\nRepeated char = "<<str[i]; 
 			return str[i];
 		}
 	}
