@@ -8,7 +8,7 @@
 using namespace std;
 /*
 Dijkistra algorithm is greedy algo
-    => Greedy algo means , choose the best avilable option at that point of time without thinging long term profit.
+    => Greedy algo means , choose the best avilable option at that point of time without thinking long term profit.
 It uses priority queue to store unvisited vertices by distance from S.
 Doesnt work with negetive weights .
 
@@ -74,11 +74,11 @@ struct Vertex {
 
 class  Graph{
 	vector<Vertex*> adjVector;
-	void dfsUtility(int src, vector<bool>&V);
 	void bfsUtility(int src,vector<bool>&V);
 	bool BelmanFordUtility(int src ,vector<int>& distance,vector<int>& previous);
 	int numOfVerticess() {return adjVector.size();}
 	public:
+	void dfsUtility(int src, vector<bool>&V);
 	void addVertex(int verNum);  // Return value  == -1: operation failed , 0: already exists , 1: success 
 	int addEdgeDirected(int src , int dest, int weight); // Return value  == -1: operation failed , 0: already exists , 1: success 
 	int addUnDirected(int src , int dest, int weight);   //Return value  == -1: operation failed , 0: already exists , 1: success 
@@ -91,9 +91,40 @@ class  Graph{
 	void bfs(int src);
 	void BelmanFordPathFinding(int src);
 	Graph* TransposeOfGraph();
+	bool isGraphStronglyConnected();
 	Graph() {};
 };
 
+/*
+ Kosaraju’s Algorithm for finding is Grph is strongly connected.
+
+Following is Kosaraju’s DFS based simple algorithm that does two DFS traversals of graph:
+1) Initialize all vertices as not visited.
+
+2) Do a DFS traversal of graph starting from any arbitrary vertex v. If DFS traversal doesn’t visit all vertices, then return false.
+
+3) Reverse all arcs (or find transpose or reverse of graph)
+
+4) Mark all vertices as not-visited in reversed graph.
+
+5) Do a DFS traversal of reversed graph starting from same vertex v (Same as step 2). If DFS traversal doesn’t visit all vertices, then return false. Otherwise return true.
+*/
+
+bool Graph::isGraphStronglyConnected() {
+	int src = 0;
+	vector<bool> visited(adjVector.size(),false);
+	dfsUtility(src,visited);
+	for(auto i:visited) {
+		if(i == false) return false; // graph is not connected as there is unvisited vertex.
+	}
+	Graph* TransposeGrapgh = TransposeOfGraph();
+	vector<bool> TransposeGraphvisited(adjVector.size(),false);
+	TransposeGrapgh->dfsUtility(src,TransposeGraphvisited);
+	for(auto i:TransposeGraphvisited) {
+		if(i == false) return false; // graph is not connected as there is unvisited vertex.
+	}
+	return true;
+}
 int Graph::addEdgeDirected(int src , int dest, int weight) {
 	addVertex(src);
 	addVertex(dest);
@@ -240,13 +271,23 @@ void Graph::bfsUtility(int src, vector<bool>&V) {
 		}
     }
 }
-
 void Graph::bfs(int src) {
 	vector<bool> visited(adjVector.size(),false);
 	bfsUtility(src,visited);
 }
 
 /*
+1) This step initializes distances from source to all vertices as infinite and distance to source itself as 0. Create an array dist[] of size |V| with all values as infinite except dist[src] where src is source vertex.
+
+2) This step calculates shortest distances. Do following |V|-1 times where |V| is the number of vertices in given graph.
+…..a) Do following for each edge u-v
+………………If dist[v] > dist[u] + weight of edge uv, then update dist[v]
+………………….dist[v] = dist[u] + weight of edge uv
+3) This step reports if there is a negative weight cycle in graph. Do following for each edge u-v
+……If dist[v] > dist[u] + weight of edge uv, then “Graph contains negative weight cycle”
+
+The idea of step 3 is, step 2 guarantees shortest distances if graph doesn’t contain negative weight cycle. If we iterate through all edges one more time and get a shorter path for any vertex, then there is a negative weight cycle
+
 Algorithm:
 function bellmanFord(G, S)
 	for each vertex V in G
@@ -297,9 +338,9 @@ void Graph::BelmanFordPathFinding(int src) {
 		if(ret == false) break;
 		i++;
 	}
-	bool isNegativeCycle = BelmanFordUtility(src,distance,previous);
+	bool isNegativeCycle = BelmanFordUtility(src,distance,previous);  // relax one more time to find if there is negitive loop . If reax
 	
-	if(isNegativeCycle == true) {
+	if(isNegativeCycle == true) {  // If releax is possiable still , then -Ve cycle exists .
 		printf("\n negtative cycle exists");
 	//	return;
 	}
@@ -308,8 +349,6 @@ void Graph::BelmanFordPathFinding(int src) {
 	}
 	return ;
 }
-
-
 /*
 We traverse the adjacency list and as we find a vertex v in the adjacency list of vertex u which indicates an edge from u to v in main graph, we just add an edge from v to u in the transpose graph 
 i.e. add u in the adjacency list of vertex v of the new graph. Thus traversing lists of all vertices of main graph we can get the transpose graph. 
@@ -328,25 +367,24 @@ Graph* Graph::TransposeOfGraph() {
 	return t;
 }	
 int main() {
-	Graph g;
-	int src = 0;
-
-	g.addEdgeDirected(0, 1, 4); 
+    Graph g;
+    int src = 0;
+    g.addEdgeDirected(0, 1, 4); 
 	//g.addEdgeDirected(0, 3, 2); 
     g.addEdgeDirected(0, 7, 9); 
     g.addEdgeDirected(1, 2, 8); 
     g.addEdgeDirected(1, 7, 11); 
     g.addEdgeDirected(2, 3, 1); 
     g.addEdgeDirected(2, 8, 4); 
-	g.addEdgeDirected(3, 8, 2); 
-	g.addEdgeDirected(2, 7, 7); 
+    g.addEdgeDirected(3, 8, 2); 
+    g.addEdgeDirected(2, 7, 7); 
     g.addEdgeDirected(2, 5, 4); 
     g.addEdgeDirected(3, 4, 9);	
     g.addEdgeDirected(3, 5, 14); 
-	g.addEdgeDirected(3, 7, 3); 
+    g.addEdgeDirected(3, 7, 3); 
     g.addEdgeDirected(4, 5, 10); 
     g.addEdgeDirected(5, 6, 2);
-	g.addEdgeDirected(5, 3, 2);
+    g.addEdgeDirected(5, 3, 2);
     g.addEdgeDirected(6, 7, 1);
     g.addEdgeDirected(6, 1, 1);	
     g.addEdgeDirected(6, 8, 6); 
@@ -359,7 +397,6 @@ int main() {
 //	g.dfs(src);
 //	printf("\n=================Bfs ======================\n");
 //	g.bfs(src);
-
 /*
 	g.addEdgeDirected(0,1,-1);
 	g.addEdgeDirected(0,2,4);
@@ -371,8 +408,6 @@ int main() {
 	g.addEdgeDirected(3,1,1);
 	g.addEdgeDirected(4,3,-3);
 */
-
-
 	printf("\n=================Dijkstra======================\n");
 	g.dijkstraDebuuging(src);
 	printf("\n=================BelmanFord======================\n");
@@ -381,6 +416,3 @@ int main() {
 	
 	return 0;
 }
-
-
-
