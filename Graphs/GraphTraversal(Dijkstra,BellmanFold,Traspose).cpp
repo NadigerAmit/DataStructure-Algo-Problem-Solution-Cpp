@@ -277,6 +277,8 @@ void Graph::bfs(int src) {
 }
 
 /*
+Belman fold algorithm:
+
 1) This step initializes distances from source to all vertices as infinite and distance to source itself as 0. Create an array dist[] of size |V| with all values as infinite except dist[src] where src is source vertex.
 
 2) This step calculates shortest distances. Do following |V|-1 times where |V| is the number of vertices in given graph.
