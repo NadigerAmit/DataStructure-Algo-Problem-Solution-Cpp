@@ -4,8 +4,11 @@ C++ is a general-purpose programming language which has evolved over the years a
 
 ## About Me
 I am Amit Nadiger, currently working as Software Engineering manager in Rakuten Japan.
+
 I am graduated from UBDT in 2005 and post graduated from BITS Pilani in 2008.
+
 I have done my MS in Software engineering and telecommunications.
+
 Programming is my hobby, as I like to keep in touch with programming especially C and C++ and solving algo and data structure problems.
 
 ### Prerequisites
