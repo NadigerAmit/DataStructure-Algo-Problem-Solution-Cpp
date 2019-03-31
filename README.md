@@ -13,20 +13,20 @@ You should know basic of C,C++.
 I used gcc compier for compilation , compier version: gcc version 8.1.0
 
 ### Big O , Big Omega, Big Theta Notation
-Big O means your algorithm will execute in no more steps than in given expression(n^2)
+#### Big O means your algorithm will execute in no more steps than in given expression(n^2)
 
-Big Omega means your algorithm will execute in no fewer steps than in the given expression(n^2)
+#### Big Omega means your algorithm will execute in no fewer steps than in the given expression(n^2)
 
-When both condition are true for the same expression, you can use the big theta notation....
+#### When both condition are true for the same expression, you can use the big theta notation....
 
 ****************************************************
 
- If an algorithm is of Θ(g(n)), it means that the running time of the algorithm as n (input size) gets larger is proportional to g(n).
+If an algorithm is of Θ(g(n)), it means that the running time of the algorithm as n (input size) gets larger is proportional to g(n).
 
 If an algorithm is of O(g(n)), it means that the running time of the algorithm as n gets larger is at most proportional to g(n).
 
 Normally, even when people talk about O(g(n)) they actually mean Θ(g(n)) but technically, there is a difference.
-
+#### Technically 
 O(n) represents upper bound. Θ(n) means tight bound. Ω(n) represents lower bound.
 
 f(x) = Θ(g(x)) iff f(x) = O(g(x)) and f(x) = Ω(g(x))
