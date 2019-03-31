@@ -27,6 +27,10 @@ If an algorithm is of O(g(n)), it means that the running time of the algorithm a
 
 Normally, even when people talk about O(g(n)) they actually mean Θ(g(n)) but technically, there is a difference.
 
+O(n) represents upper bound. Θ(n) means tight bound. Ω(n) represents lower bound.
+
+f(x) = Θ(g(x)) iff f(x) = O(g(x)) and f(x) = Ω(g(x))
+
 ### Big O Notation
 
 *Big O notation* is used to classify algorithms according to how their running time or space requirements grow as the input size grows.
