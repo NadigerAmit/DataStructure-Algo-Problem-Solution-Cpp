@@ -13,9 +13,9 @@ You should know basic of C,C++.
 I used gcc compier for compilation , compier version: gcc version 8.1.0
 
 ### Big O , Big Omega, Big Theta Notation
-#### Big O means your algorithm will execute in no more steps than in given expression(n^2)
+#### Big O means your algorithm will execute in no more steps than in given expression
 
-#### Big Omega means your algorithm will execute in no fewer steps than in the given expression(n^2)
+#### Big Omega means your algorithm will execute in no fewer steps than in the given expression
 
 #### When both condition are true for the same expression, you can use the big theta notation....
 
