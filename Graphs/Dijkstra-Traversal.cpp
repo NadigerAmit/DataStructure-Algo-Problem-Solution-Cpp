@@ -123,72 +123,71 @@ void Graph::addVertex(int src) {
 
 int Graph::getWeightOfEdge(int src , int dest) {
     if(adjVector.size()<=src ||adjVector.size()<=dest) return 0;
-	if(adjVector[src]->edgeMap.find(dest) == adjVector[src]->edgeMap.end()) return 0;
-	adjVector[src]->edgeMap[dest]->weight;
-	return 1;
+    if(adjVector[src]->edgeMap.find(dest) == adjVector[src]->edgeMap.end()) return 0;
+    adjVector[src]->edgeMap[dest]->weight;
+    return 1;
 }
 
 typedef pair<int,int> iPair ; //< weight , vertexNum>
 
 // with debug prints for understanding 
 void Graph::dijkstra(int src) {
-	vector<bool> visited(adjVector.size(),false);
+    vector<bool> visited(adjVector.size(),false);
     vector<int> previous(adjVector.size(),0);
 
-	priority_queue<iPair,vector<iPair>,greater<iPair>> pq;  // create the priority queue of <weight,Vertex>
-	vector<int> dist(adjVector.size(),INT_MAX);  // Prepare the distance table of size = number of vertex
-	dist[src] = 0;                               // distance of src from src = 0, update the distance table
-	pq.push(make_pair(0,src));                   // push the source vertex psir <weight,vert> in priority queue
-	while(!pq.empty()) {   
-		iPair inst = pq.top();                   // take the 1st elemnt of queue and shortest distance for this is found.
-		//iPair inst = pq.front();                  
-		pq.pop();                              
-		int v = inst.second;                     // take the vertex number of that instance 		
-		for(auto i:adjVector[v]->edgeMap) {      // visit all the nodes connected to that vertex via edge from that vertex
-			int u = i.first;                     // retrive the connceted vertex 
-			int weight = i.second->weight;       // retrive the wight of coonected edge with source if v .
-			if(dist[u]>dist[v]+weight) {         // This is relax function , if cost of connected vertex is more then cost or parent + weight of edge
-			    previous[u] = v;
-				dist[u] = dist[v]+weight;        // replace the cost of the connected vertex with small value ,since this node can traversed with less cost than earleir 
-				pq.push(make_pair(dist[u],u));   // push the modified cost new cost and the vertex to priority queue.
-			}
-		}
+    priority_queue<iPair,vector<iPair>,greater<iPair>> pq;  // create the priority queue of <weight,Vertex>
+    vector<int> dist(adjVector.size(),INT_MAX);  // Prepare the distance table of size = number of vertex
+    dist[src] = 0;                               // distance of src from src = 0, update the distance table
+    pq.push(make_pair(0,src));                   // push the source vertex psir <weight,vert> in priority queue
+    while(!pq.empty()) {   
+	iPair inst = pq.top();                   // take the 1st elemnt of queue and shortest distance for this is found.                 
+	pq.pop();                              
+	int v = inst.second;                     // take the vertex number of that instance 		
+	for(auto i:adjVector[v]->edgeMap) {      // visit all the nodes connected to that vertex via edge from that vertex
+	    int u = i.first;                     // retrive the connceted vertex 
+	    int weight = i.second->weight;       // retrive the wight of coonected edge with source if v .
+	    if(dist[u]>dist[v]+weight) {         // This is relax function , if cost of connected vertex is more then cost or parent + weight of edge
+	        previous[u] = v;
+	        dist[u] = dist[v]+weight;        // replace the cost of the connected vertex with small value ,since this node can traversed with less cost than earleir 
+	        pq.push(make_pair(dist[u],u));   // push the modified cost new cost and the vertex to priority queue.
+	    }
 	}
+    }
 
-	for(auto i=0;i<dist.size();i++) {
-		cout<<i<<"---"<<dist[i] <<" Pre = " <<previous[i]<<endl;
-	}
+    for(auto i=0;i<dist.size();i++) {
+	cout<<i<<"---"<<dist[i] <<" Pre = " <<previous[i]<<endl;
+    }
 }
 
 int main() {
-	Graph g;
-	int src = 0;
+    Graph g;
+    int src = 0;
 
-	g.addEdgeDirected(0, 1, 4); 
-	//g.addEdgeDirected(0, 3, 2); 
+    g.addEdgeDirected(0, 1, 4); 
+    //g.addEdgeDirected(0, 3, 2); 
     g.addEdgeDirected(0, 7, 9); 
     g.addEdgeDirected(1, 2, 8); 
     g.addEdgeDirected(1, 7, 11); 
     g.addEdgeDirected(2, 3, 1); 
     g.addEdgeDirected(2, 8, 4); 
-	g.addEdgeDirected(3, 8, 2); 
-	g.addEdgeDirected(2, 7, 7); 
+    g.addEdgeDirected(3, 8, 2); 
+    g.addEdgeDirected(2, 7, 7); 
     g.addEdgeDirected(2, 5, 4); 
     g.addEdgeDirected(3, 4, 9);	
     g.addEdgeDirected(3, 5, 14); 
-	g.addEdgeDirected(3, 7, 3); 
+    g.addEdgeDirected(3, 7, 3); 
     g.addEdgeDirected(4, 5, 10); 
     g.addEdgeDirected(5, 6, 2);
-	g.addEdgeDirected(5, 3, 2);
+    g.addEdgeDirected(5, 3, 2);
     g.addEdgeDirected(6, 7, 1);
     g.addEdgeDirected(6, 1, 1);	
     g.addEdgeDirected(6, 8, 6); 
     g.addEdgeDirected(7, 8, 8); 
-	g.addEdgeDirected(7, 1, 8); 
+    g.addEdgeDirected(7, 1, 8); 
 
-	printf("\n=================Dijkstra======================\n");
-	g.dijkstra(src);
-	return 0;
+    printf("\n=================Dijkstra======================\n");
+    g.dijkstra(src);
+    return 0;
 }
 
 
