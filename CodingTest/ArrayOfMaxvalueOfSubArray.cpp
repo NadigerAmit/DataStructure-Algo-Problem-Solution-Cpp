@@ -23,12 +23,12 @@ using namespace std;
 
 void printMaxOfSubArray(int array[],int size ,int k) {
 	set<int> intSet ;
-	bool countReached = false;
+	bool countKreached = false;
 	k = k-1; // since 3 elemets should be considerd and i is considered from 0.
 	for(int i = 0;i<size;i++) {
 		intSet.insert(array[i]);
-		if(i == k) countReached = true;
-		if(countReached == true) {
+		if(i == k) countKreached = true; // waiting for 1st k elements of array to be inserted in to set.
+		if(countKreached == true) {
 			printf("%d\n",*(intSet.rbegin())); // print the max of 3 elemnts 
 			intSet.erase(array[i-k]); // erase the elemnts of array 
 		}
