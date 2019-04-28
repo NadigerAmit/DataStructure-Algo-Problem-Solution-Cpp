@@ -33,9 +33,7 @@ bool isAnagramsUsingUMaps(string s,string t) {
 		cout<<endl<<"second = "<<charMap[s.at(i)]; 
 	}
 	cout<<endl<<"***********************************"<<endl;
-	for(auto itr:charMap) {
-		cout<<"\nFirst = "<<itr.first<<"Second = "<<itr.second<<endl;
-	}
+
 	for(i= 0;i<t.length();i++) {
 		if(charMap[t.at(i)] == 0) return false;
 		charMap[t.at(i)]--;
