@@ -42,7 +42,7 @@ class WorkingStudent : public Employe,public Student {
 	public:
 	    WorkingStudent(int age ,string name,int stdId):
    	        Person(age,name),Employe(age,name),Student(age,stdId,name),workingStudentId(11){;}  
-	    // here should explicitly pass the parameters to base class constructor i.e Person(age,name) due to virtual inheritance.
+	    // here should explicitly initialize base class paramaterized constructor i.e Person(age,name) due to virtual inheritance. 
 	    int getWorkingStudentId() { return workingStudentId;}   
 };
 
