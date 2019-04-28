@@ -45,10 +45,10 @@ class WorkingStudent : public Employe,public Student {
 };
 
 int main() {
-	Person pObj(37,"Amit");
-	Employe EObj(37,"Employee Amit ");
-	Student Sobj(37,1,"Student Amit");
-	WorkingStudent wObj(37,"WorkingStudent Amit",1);
+	Person pObj(37,"Ganesh");
+	Employe EObj(37,"Employee Ganesh ");
+	Student Sobj(37,1,"Student Ganesh");
+	WorkingStudent wObj(37,"WorkingStudent Ganesh",1);
 	cout<<pObj.getName()<<endl;
 	cout<<EObj.getName()<<endl;
 	cout<<Sobj.getName()<<endl;
