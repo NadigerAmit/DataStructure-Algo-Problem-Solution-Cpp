@@ -19,7 +19,7 @@ list<int> ListWithContinuousElementSum(list<int> lst, int K) {
 
 	if(sum == K) return sumList;
 	auto a = lst.begin();
-    if(*a == K) {
+        if(*a == K) {
 		sumList.push_back(*a);
 		return sumList;
 	}
