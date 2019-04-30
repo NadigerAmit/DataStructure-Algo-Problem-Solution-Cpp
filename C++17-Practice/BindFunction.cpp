@@ -1,5 +1,6 @@
 /*
  =====> std::bind <=====
+ It makes the code readablity more easy and less code.
 std::bind is a Standard Function Objects that acts as a Functional Adaptor 
 i.e. it takes a function as input and returns a new function Object as an output with with one or more of the arguments of passed function bound or rearranged.
 
