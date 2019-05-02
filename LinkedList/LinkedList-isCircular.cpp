@@ -146,5 +146,5 @@ int main() {
 	Node_t* tempNode = root;
 	bool isCircular = isListCircular(root);
 	printf("\n isListCircular = %d\n",isCircular);
-return 0;
+        return 0;
 }
