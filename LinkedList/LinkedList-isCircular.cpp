@@ -4,17 +4,17 @@
 
 typedef struct node {
     int data;
-	struct node* next;
-	struct node* prev;
+    struct node* next;
+    struct node* prev;
 } Node_t;
 
 Node_t* getNode(int data) {
     Node_t *ptr = (Node_t*)malloc(sizeof(Node_t));
-	assert(ptr != NULL);
-	ptr->data = data;
-	ptr->prev = NULL;
-	ptr->next = NULL;
-	return ptr;
+    assert(ptr != NULL);
+    ptr->data = data;
+    ptr->prev = NULL;
+    ptr->next = NULL;
+    return ptr;
 }
 
 static Node_t* createCircularLinkedListWithArray(int* array,int size,Node_t **tail) {
@@ -65,14 +65,14 @@ bool isListCircular(Node_t* root) {
 	first=first->next->next;
 	second = second->next;
 	if(first == second) {
-		Node_t* initial = root;
-		Node_t* againFirst = first;
-		while(initial != againFirst) {
-			initial = initial->next;
-			againFirst = againFirst->next;
-		}
-		printf("\nLinked node = %d",initial->data);
-		return true;
+	    Node_t* initial = root;
+	    Node_t* againFirst = first;
+	    while(initial != againFirst) {
+		initial = initial->next;
+		againFirst = againFirst->next;
+	    }
+	    printf("\nLinked node = %d",initial->data);
+	    return true;
 	}
     }
     return false;
