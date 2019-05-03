@@ -37,11 +37,11 @@ n                  ?                                                        f(n-
 
 int stracecaseClimbingWaysFor1_2(int n ,vector<int>& v) { // n = toal number of steps and V is vector for memoization.
     if(n==0) return 0;
-	if(n==1) return 1;
-	if(v[n]!=0) return v[n]; // this process is called memoization 
-	v[n-1] = stracecaseClimbingWaysFor1_2(n-1,v);
-	v[n-2] = stracecaseClimbingWaysFor1_2(n-2,v);
-	return v[n-1]+v[n-2];
+    if(n==1) return 1;
+    if(v[n]!=0) return v[n]; // this process is called memoization 
+    v[n-1] = stracecaseClimbingWaysFor1_2(n-1,v);
+    v[n-2] = stracecaseClimbingWaysFor1_2(n-2,v);
+    return v[n-1]+v[n-2];
 }
 
 /*
@@ -62,22 +62,22 @@ n                  ?                                                            
 
 int stracecaseClimbingWaysFor1_3_5(int n ,vector<int>& v) { // n = toal number of steps 
     if(n==0) return 0;
-	if(n<=2) return 1;
-	if(v[n]!=0) return v[n];  // this is called memoization 
-	int result  = stracecaseClimbingWaysFor1_3_5(n-1,v)+ stracecaseClimbingWaysFor1_3_5(n-3,v)+stracecaseClimbingWaysFor1_3_5(n-5,v);
+    if(n<=2) return 1;
+    if(v[n]!=0) return v[n];  // this is called memoization 
+    int result  = stracecaseClimbingWaysFor1_3_5(n-1,v)+ stracecaseClimbingWaysFor1_3_5(n-3,v)+stracecaseClimbingWaysFor1_3_5(n-5,v);
     v[n] = result;  //  memoization 
-	return result;
+    return result;
 }
 
 int main() {
     int n = 15;
-	vector<int> v;
-	v.resize(n+1);
-	vector<int> v1;
-	v1.resize(n+1);
-	printf("\n stracecaseClimbingWaysFor1_2 for  %d",stracecaseClimbingWaysFor1_2(n,v));
-	printf("\n stracecaseClimbingWaysFor1_3_5 for  %d",stracecaseClimbingWaysFor1_3_5(n,v1));
-	return 0;
+    vector<int> v;
+    v.resize(n+1);
+    vector<int> v1;
+    v1.resize(n+1);
+    printf("\n stracecaseClimbingWaysFor1_2 for  %d",stracecaseClimbingWaysFor1_2(n,v));
+    printf("\n stracecaseClimbingWaysFor1_3_5 for  %d",stracecaseClimbingWaysFor1_3_5(n,v1));
+    return 0;
 }
 
 
