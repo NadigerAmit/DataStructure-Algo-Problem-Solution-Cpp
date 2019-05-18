@@ -21,11 +21,12 @@ auto add(auto a,auto b) {
 	return a+b;
 }
 /*
-auto can't detect the referance automatically , it should be specified explicitly;
+auto can't detect whether the parameters sent are normal callby value or referance automatically , 
+it should be specified explicitly mentioned that they are referancess;
 void AutoSwap(auto& x, auto& y) <= correct way to send referance
 void AutoSwap(auto x, auto y)   <= calls by value 
 */
-void AutoSwap(auto& x, auto& y) {
+void AutoSwap(auto& x, auto& y) {  // auto& x =>says that it is referance , if we just metion auto x => call bay value.
     auto z = x;
     x = y;
     y = z;
