@@ -53,9 +53,9 @@ int* ArrayWithNumberOfSmallerNumOfElementToRight(int Array[],int size) {
 
 int main() {
 	int array[] = {4,3,9,2,6,1};
-	//int array[SIZE_OFARRAY] = {1, 10, 9, 6, 29};
-	//int array[SIZE_OFARRAY] = {3, 4, 9, 6, 1};
+	//int array[] = {1, 10, 9, 6, 29};  // use for testing 
+	//int array[] = {3, 4, 9, 6, 1};    // use for testing
 	int* resultArray = ArrayWithNumberOfSmallerNumOfElementToRight(array,sizeof(array)/sizeof(array[0]));
-	printArray(resultArray,SIZE_OFARRAY);
+	printArray(resultArray,sizeof(array)/sizeof(array[0]));
 	return 0;
 }
