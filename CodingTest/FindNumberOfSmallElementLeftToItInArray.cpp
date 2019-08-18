@@ -43,9 +43,7 @@ int* ArrayWithNumberOfSmallerNumOfElementToRight_simple(int array[],int size) {
             }
         }
     }
-
     return resultArray;
-
 }
 
 int* ArrayWithNumberOfSmallerNumOfElementToRight(int Array[],int size) {
