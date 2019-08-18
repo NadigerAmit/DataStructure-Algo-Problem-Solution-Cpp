@@ -30,6 +30,24 @@ void printArray(int* array,int size) {
 	}
 }
 
+int* ArrayWithNumberOfSmallerNumOfElementToRight_simple(int array[],int size) {
+    //int numOfElements = sizeof(array)/sizeof(array[0]);
+    int* resultArray = new int [size];
+    resultArray[size-1] = 0;  // last element value = 0;
+    for(int i = size-2;i>=0;i--) {  // star the i with 2nd elemnt from the last i.e size-2.
+        int key = array[i];   // 2nd elemnt from lst from begining.
+        for(int j = i+1;j<=size-1;j++) {   // init the j with 1st index from last 
+            if(key>=array[j]) {   // compare the key with previous elements till it finds the last element
+                resultArray[i] = resultArray[j]+1;
+                break;
+            }
+        }
+    }
+
+    return resultArray;
+
+}
+
 int* ArrayWithNumberOfSmallerNumOfElementToRight(int Array[],int size) {
 	int* newarry = new int[size];
 	memset(newarry,0,sizeof(int)*(size+1));
@@ -59,3 +77,4 @@ int main() {
 	printArray(resultArray,sizeof(array)/sizeof(array[0]));
 	return 0;
 }
+// O/P : [3,2,2,1,1,0].
