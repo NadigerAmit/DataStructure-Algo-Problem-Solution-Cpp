@@ -31,6 +31,39 @@ int main() {
 	return 0;
 }
 /*
+A priority queue is a queue that does not have the “first in, first out” logic.
+
+In a priority queue, you can add successive pieces of data and retrieve the one that has the “highest priority” in constant time.
+
+So to implement a priority queue, you also need a comparison between its elements to determine which one has the “highest priority”.
+
+In C++ you can use std::priority_queue that wraps another container (by default, std::vector). std::priority_queue uses 
+operator< by default (via the function object std::less) to compare the elements. So the element of highest priority is the largest one.
+
+std::priority_queue also accepts a custom comparator to replace std::less. 
+For instance you could use std::greater so that the element of highest priority is the smallest one. 
+Or you could also use a custom comparator, to compare the keys of the elements for example, or to compare user defined types.
+
+std::priority_queue offers the interface of a priority queue, which is:
+
+> push: add a new element to the queue,
+> pop: remove the largest element of the queue,
+> top: access the largest element of the queue.
+
+Note the difference with the interface of a simple queue: the priority queue does not give access to the element most recently inserted
+(the equivalent of back in the queue). 
+Instead, the elements get swallowed up by the priority queue, and it only spits out the top element.
+
+What is link between heaps and Priority queues 
+
+Heaps are an implementation of priority queues.
+In heaps basics we saw that they offer an easy access to the largest elements, by positioning it at their root
+
+Note : Priority queues can be implemented by heaps, and heaps can be implemented by arrays.
+
+*/
+
+/*
 Container	           Insertion	                  Access	            Erase	                Find	             Persistent Iterators
 -------------------------------------------------------------------------------------------------------------------------------------------------
 vector / string	        Back: O(1) or                  O(1)	              Back: O(1)            Sorted: O(log n)      	     No
