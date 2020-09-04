@@ -3,7 +3,7 @@
 C++ is a general-purpose programming language which has evolved over the years and is used to develop software for many different sectors. Using C++ we are trying to solve popular data structure and algorithms problems asked in Famous compinies (Google , Facebook , snapchat , etc)
 
 ## About Me
-I am Amit Nadiger, currently working as Software Engineering manager in Rakuten Japan.
+I am Amit Nadiger, currently working as Software Engineering manager Japan.
 
 https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
 
