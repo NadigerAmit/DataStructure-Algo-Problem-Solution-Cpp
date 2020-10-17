@@ -16,9 +16,11 @@ int main() {
 	return 0;
 }
 /*
-std::multiset is an associative container that contains a sorted set of objects of type Key. Unlike set, multiple keys with equivalent values are allowed. Sorting is done using the key comparison function Compare. Search, insertion, and removal operations have logarithmic complexity.
+std::multiset is an associative container that contains a sorted set of objects of type Key. Unlike set, multiple keys with equivalent values are allowed. 
+Sorting is done using the key comparison function Compare. Search, insertion, and removal operations have logarithmic complexity.
 
-Everywhere the standard library uses the Compare requirements, equivalence is determined by using the equivalence relation as described on Compare. In imprecise terms, two objects a and b are considered equivalent if neither compares less than the other: !comp(a, b) && !comp(b, a).
+Everywhere the standard library uses the Compare requirements, equivalence is determined by using the equivalence relation as described on Compare. 
+In imprecise terms, two objects a and b are considered equivalent if neither compares less than the other: !comp(a, b) && !comp(b, a).
 
 The order of the elements that compare equivalent is the order of insertion and does not change. (since C++11)
 
