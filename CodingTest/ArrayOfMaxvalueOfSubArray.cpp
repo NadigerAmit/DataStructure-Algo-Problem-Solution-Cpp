@@ -21,6 +21,17 @@ You can simply print them out as you compute them.
 
 using namespace std;
 
+void printMaxOfSubArrayUsingArrayIndex(int array[] , int arraySize ,int k) {
+	if(k>arraySize) return ;
+	for(int i = 0;i<arraySize;i++) {
+		if((i+k) >arraySize) break;
+		int max = 0;
+		for(int j = i;j<i+k;j++) {
+			if(array[j]>max) max = array[j];
+		}
+		cout<<max<<endl;
+	}
+}
 void printMaxOfSubArray(int array[],int size ,int k) {
 	set<int> intSet ;
 	bool countKreached = false;
