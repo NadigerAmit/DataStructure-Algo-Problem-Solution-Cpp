@@ -41,7 +41,7 @@ void printMaxOfSubArray(int array[],int size ,int k) {
 		if(i == k) countKreached = true; // waiting for 1st k elements of array to be inserted in to set.
 		if(countKreached == true) {
 			printf("%d\n",*(intSet.rbegin())); // print the max of 3 elemnts 
-			intSet.erase(array[i-k]); // erase the elemnts of array 
+			intSet.erase(array[i-k]); // erase the 1st elemnts of array 
 		}
 	}
 }
