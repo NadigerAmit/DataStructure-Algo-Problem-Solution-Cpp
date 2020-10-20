@@ -21,6 +21,7 @@ You can simply print them out as you compute them.
 
 using namespace std;
 
+// This is not efficient complexity is  n*k where is arraySize and k is sizeOfsub array. 
 void printMaxOfSubArrayUsingArrayIndex(int array[] , int arraySize ,int k) {
 	if(k>arraySize) return ;
 	for(int i = 0;i<arraySize;i++) {
