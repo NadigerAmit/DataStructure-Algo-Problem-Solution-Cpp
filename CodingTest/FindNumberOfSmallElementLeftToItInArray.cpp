@@ -64,7 +64,7 @@ int* ArrayWithNumberOfSmallerNumOfElementToRight(int Array[],int size) {
 	}
 	return newarry;
 }
-
+/////////////////////////////////////////////////////////////////////////////////
 int findnumberOfSmallItem(int* array,int size) {
 	int count = 0;
 	for(int i = 1;i<size;i++) {
@@ -84,7 +84,7 @@ int findnumberOfSmallItem(int* array,int size) {
 	}
 	
 }
-
+/////////////////////////////////////////////////////////////////////////////////
 int main() {
 	int array[] = {4,3,9,2,6,1};
 	//int array[] = {1, 10, 9, 6, 29};  // use for testing 
