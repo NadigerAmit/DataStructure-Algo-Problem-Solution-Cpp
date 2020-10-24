@@ -65,6 +65,27 @@ int* ArrayWithNumberOfSmallerNumOfElementToRight(int Array[],int size) {
 	return newarry;
 }
 
+ void ArrayWithNumberOfSmallerNumOfElementToRight_UsingStl(int array[],int size,int resultArray[]) {
+    set<int> inteSet;
+	for(int i = 0;i<size;i++) {
+		inteSet.insert(array[i]);
+	}
+	map<int,int> mMap;// element,count of elemnt 
+	int count = 0;
+	for(auto j:inteSet) {
+		mMap[j] = count++;
+	}
+	cout<<"---------------------"<<endl;
+	for(auto j:mMap) {
+		cout<<j.first<<"----->"<<j.second <<endl;
+	}
+	cout<<"---------------------"<<endl;
+	for(int i = 0;i<size;i++) {
+		resultArray[i] = mMap.find(array[i])->second;
+		cout<<resultArray[i]<<endl;
+	}
+	// complexity n(logn) + logn + n(logn) + 
+}
 
 
 int main() {
