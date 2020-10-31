@@ -2,6 +2,7 @@
 #include<iostream>
 #include<list>
 #include<vector>
+#include<queue>
 
 using namespace std;
 
@@ -62,6 +63,33 @@ bool subSetSum(vector<int> vec,int index,int K ) {
 		}
 	}
 	return false;
+}
+
+void findArrayWithSumKWithQueue(int array[],int size,int k) {
+	queue<int> Q;
+	int sum = 0;
+	for(int i = 0;i<size;i++) {
+		sum+=array[i];
+		Q.push(array[i]);
+		if(sum<k) {
+			;
+		} else if(sum>k) {
+			while(sum>k) {
+				int top = Q.front();
+				sum = sum-top;
+				Q.pop();
+			}
+		}
+		if(sum==k) {
+			// primnt element inthe Q
+			cout<<"Sub array Elements with sum = "<<k<<endl;
+			while(!Q.empty()) {
+				cout<<Q.front()<<endl;
+				Q.pop();
+			}
+			break;
+		}
+	}
 }
 
 int main() {
