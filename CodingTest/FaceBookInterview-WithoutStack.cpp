@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<iostream>
 #include<string>
-#include<stack>
 using namespace std;
 /*
 Balance a string with parentheses. "a(b)" -> "a(b)"; "(((((" -> ""; "(()())" -> "(()())"; ")ab(()" -> "ab()";
