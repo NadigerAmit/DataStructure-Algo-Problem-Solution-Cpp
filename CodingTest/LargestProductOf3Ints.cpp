@@ -4,6 +4,23 @@
 #include<vector>
 #include <algorithm>
 
+/*
+Maximum product of a triplet (subsequence of size 3) in array
+Last Updated: 06-10-2020
+Given an integer array, find a maximum product of a triplet in array.
+Examples: 
+
+Input:  [10, 3, 5, 6, 20]
+Output: 1200
+Multiplication of 10, 6 and 20
+ 
+Input:  [-10, -3, -5, -6, -20]
+Output: -90
+
+Input:  [1, -4, 3, -6, 7, 0]
+Output: 168
+*/
+
 using namespace std;
 
 int largestProduct(vector<int>& array) {
