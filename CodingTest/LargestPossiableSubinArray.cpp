@@ -1,6 +1,42 @@
 #include<stdio.h>
 #include<iostream>
 
+/* 
+Kadane's algorithm scans the given array {\displaystyle A[1\ldots n]}{\displaystyle A[1\ldots n]} from left to right. 
+In the {\displaystyle j}jth step, it computes the subarray with the largest sum ending at {\displaystyle j}j; this sum is maintained in variable current_sum.
+[note 3] Moreover, it computes the subarray with the largest sum anywhere in {\displaystyle A[1\ldots j]}{\displaystyle A[1\ldots j]},
+maintained in variable best_sum,[note 4] and easily obtained as the maximum of all values of current_sum seen so far, cf. line 7 of the algorithm.
+
+Algorithm 
+def max_subarray(numbers):
+    """Find the largest sum of any contiguous subarray."""
+    best_sum = 0  # or: float('-inf')
+    current_sum = 0
+    for x in numbers:
+        current_sum = max(0, current_sum + x)  // if all numbers are negative , it retiurns -ve number 
+        best_sum = max(best_sum, current_sum)
+    return best_sum
+    
+*/
+int max(int a,int b) {
+	return a>b?a:b;
+}
+int largestPossiableSumOfArrayBy_KadaneAlgo(int array[],int size) {
+	int currnetSum = 0;
+	int bestSum = -12344;
+	for(int i = 0;i<size;i++) {
+		if(currnetSum<0 && currnetSum<array[i]) { // for negative numbers 
+			currnetSum = array[i];
+			bestSum = max(bestSum,currnetSum);
+		} else {
+			currnetSum = max(-12344,currnetSum+array[i]); // basically -ve infinity num should be compared.
+			bestSum = max(bestSum,currnetSum);
+		}
+	}
+	return bestSum;
+}
+
+
 int largestPossiableSumOfArray(int array[], int size) {
 	int currentSum = array[0];
 	int nextSum = 0;
