@@ -62,7 +62,7 @@ int largestPossiableSumOfArrayBy_KadaneAlgo(int array[],int size) {
 	return bestSum;
 }
 
-
+// Below one is difficult to understand , but solves the problem .
 int largestPossiableSumOfArray(int array[], int size) {
 	int currentSum = array[0];
 	int nextSum = 0;
