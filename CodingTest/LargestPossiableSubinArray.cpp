@@ -23,7 +23,7 @@ int max(int a,int b) {
 }
 int largestPossiableSumOfArrayBy_KadaneAlgo(int array[],int size) {
 	int currnetSum = 0;
-	int bestSum = -12344;
+	int bestSum = -12344;  // basically -ve infinity num should be compared.
 	for(int i = 0;i<size;i++) {
 		if(currnetSum<0 && currnetSum<array[i]) { // for negative numbers 
 			currnetSum = array[i];
