@@ -92,17 +92,17 @@ void printBfsInReverseOrder(node_t* root) {
 		}
 		//free(frontQnode);
 	}
-	printf("\nPronting the numbers in reverse level order\n");
+	printf("\nPrinting the numbers in reverse level order\n");
 	printf("\n***************Current level %d*********\n",currentLevel);
 	while(!S.empty()) {
-			bfsQ_t* frontSnode = S.top();
-		if(currentLevel != frontSnode->level){
-			currentLevel = frontSnode->level;
+			bfsQ_t* topSnode = S.top();
+		if(currentLevel != topSnode->level){
+			currentLevel = topSnode->level;
 			printf("\n***************Current level %d*********\n",currentLevel);
 		}	
-		cout<<" " <<frontSnode->rootNode->data;
+		cout<<" " <<topSnode->rootNode->data;
 		S.pop();
-		free(frontSnode);
+		free(topSnode);
 	}
 
 }
