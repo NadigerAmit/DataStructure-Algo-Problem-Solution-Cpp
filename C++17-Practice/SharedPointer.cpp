@@ -218,11 +218,16 @@ Overriding the copy semantics to implement move semantics leads to weird edge ca
 And “move semantics” added to the language to properly differentiate copying from moving.
 In C++11, std::auto_ptr has been replaced by a bunch of other types of “move-aware” smart pointers: std::scoped_ptr, std::unique_ptr, std::weak_ptr, and std::shared_ptr.
 We’ll also explore the two most popular of these: std::unique_ptr (which is a direct replacement for std::auto_ptr) and std::shared_ptr.
+
 std::unique_ptr with example in C++11
+===========================================
+
 std::unique_ptr is the C++11 replacement for std::auto_ptr. It is used to manage use to manage any dynamically allocated object not shared by multiple objects. 
 That is, std::unique_ptr should completely own the object it manages, not share that ownership with other classes.
+
 We can convert our smart_ptr we designed above into std::unique_ptr.
 And for that one thing, we can do is delete the copy constructor & assignment operator so that no one can copy smart pointer.
+
 As we are not allowing a copy of smart pointer we can’t pass our smart pointer to any function by value or return by value. And this is not good design.
 To pass or return by value, we can add move constructor & move assignment operator, so that while passing or returning by value,
 we would have to transfer ownership through move semantics. This way we can also ensure single ownership throughout the lifetime of the object.
