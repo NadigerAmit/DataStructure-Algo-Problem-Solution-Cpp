@@ -56,10 +56,9 @@ pair<set<int>,set<int>> ZeroOneParent(vector<pair<int, int>> inputData) {
 		childernSet.insert(i.second);
 	}
 	
-	for(auto i:parentSet) {
-		if(childernSet.find(i) == childernSet.end()){
-			zeroParentChildernSet.insert(i);
-			cout<<"Z"<<i;
+       for(auto i:inputData) {
+		if(childernSet.find(i.first) == childernSet.end()){
+			zeroParentChildernSet.insert(i.first);
 		}
 	}
 	
