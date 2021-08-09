@@ -1,8 +1,11 @@
 // This code copied from some post in linkedin , this is not my origional code and explain:
 /*
-std::reference_wrapper is a class template that wraps a reference in a copyable, assignable object. It is frequently used as a mechanism to store references inside standard containers (like std::vector) which cannot normally hold references.
+std::reference_wrapper is a class template that wraps a reference in a copyable, assignable object.
+It is frequently used as a mechanism to store references inside standard containers (like std::vector) which cannot normally hold references.
 
-Specifically, std::reference_wrapper is a CopyConstructible and CopyAssignable wrapper around a reference to object or reference to function of type T. Instances of std::reference_wrapper are objects (they can be copied or stored in containers) but they are implicitly convertible to T&, so that they can be used as arguments with the functions that take the underlying type by reference.
+Specifically, std::reference_wrapper is a CopyConstructible and CopyAssignable wrapper around a reference to object or reference to function of type T. 
+Instances of std::reference_wrapper are objects (they can be copied or stored in containers) but they are implicitly convertible to T&, 
+so that they can be used as arguments with the functions that take the underlying type by reference.
 
 If the stored reference is Callable, std::reference_wrapper is callable with the same arguments.
 
