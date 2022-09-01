@@ -7,7 +7,7 @@
 
 sem_t sem;
 sem_t sem1;
-
+/*
 void* threadFun1(void* param) {
     int val = 0 ;
     while(1) {
@@ -17,8 +17,8 @@ void* threadFun1(void* param) {
     }
       pthread_exit(nullptr);
 }
+*/
 
-/*
 void* threadFun1(void* param) {
     while(1) {
 	sem_wait(&sem);    
@@ -28,9 +28,9 @@ void* threadFun1(void* param) {
     }
     pthread_exit(nullptr);
 }
-*/
 
 
+/*
 void* threadFun2(void* param) {
     int val = 0 ;
     while(1) {
@@ -47,8 +47,8 @@ void* threadFun2(void* param) {
     }
       pthread_exit(nullptr);
 }
+*/
 
-/*
 void* threadFun2(void* param) {
     while(1) {
         sem_wait(&sem1);
@@ -57,7 +57,7 @@ void* threadFun2(void* param) {
     }
     pthread_exit(nullptr);
 }
-*/
+
 
 int main() {
     int threadId1,threadId2;
