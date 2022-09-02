@@ -1,3 +1,11 @@
+/*Below program explanes about the thread specific data creation and setting and getting the TSD specific value 
+Here 2 threads can store the differnt type of data with same key i.e tsdKey1.
+ThreadFunc1 -- stores int data 
+ThreadFunc2 -- stores string(char array ) data.
+*/
+
+
+
 #include<stdio.h>
 #include<iostream>
 #include<pthread.h>
@@ -8,7 +16,9 @@ pthread_key_t tsdKey1;
 pthread_key_t tsdKey2;
 
 void TsdDestruct(void* param) {
-	
+     free(param);
+     pthread_setspecific( tsdKey1, NULL );
+     pthread_setspecific( tsdKey2, NULL );
 }
 
 void* ThreadFunc1(void* param) {
