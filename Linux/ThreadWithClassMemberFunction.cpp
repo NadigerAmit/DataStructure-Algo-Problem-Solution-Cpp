@@ -1,3 +1,7 @@
+
+/*
+Below program shows how to pass the class member function to thread for thread creation .
+*/
 #include<stdio.h>
 #include<iostream>
 #include<pthread.h>
@@ -13,11 +17,7 @@ class ThreadClass {
 };
 
 void* ThreadClass::execute() {
-	pthread_attr_t attr;
-	 size_t stackSize = 0;
-	 pthread_attr_getstacksize(&attr,&stackSize);
-	 cout<<" \ninsidse the execute without param - thread member function  and stack size =>" <<pthread_self()<<" Stack size " << stackSize<<endl<<"\n";
-	 
+	 cout<<" \ninsidse the execute without param - thread member function  " <<pthread_self()<<endl<<"\n"; 
 	return nullptr;
 }
 
@@ -38,15 +38,11 @@ int main() {
 	ThreadClass* threadPtr = new ThreadClass();
 	
 	//THREADFUNC callbackFunc = (THREADFUNC)&ThreadClass::execute;
-	//callbackFunc(threadPtr);
 
-	int id1 = pthread_create(&threadId1,nullptr,(THREADFUNC)&ThreadClass::execute,nullptr);
+	int id1 = pthread_create(&threadId1,nullptr,(THREADFUNC)&ThreadClass::execute,threadPtr); // passing the this pointer to execute() i.e threadPtr
 	int id2 = pthread_create(&threadId2,nullptr,ThreadClass::threadFunc,nullptr);
 	
 	cout<<" \ninsidse the main - function =>" <<pthread_self()<<endl<<"\n";
-	//printf("\n Address of the function %p\n",callbackFunc);
-	
-	printf("\n Address of the function using directly  %p\n",&ThreadClass::execute);
 	pthread_exit(nullptr);
 	return 0;
 }
