@@ -1,4 +1,12 @@
                                                         
+
+/*
+Below program demonstrate about the pthread_cancel
+    • When we want to terminate a thread, we can use the pthread_cancel function. 
+    • This function gets a thread ID as a parameter, and sends a cancellation request to this thread. 
+    • What this thread does with this request depends on its state. 
+    • It might act on it immediately, it might act on it when it gets to a cancellation point (discussed below), or it might completely ignore it. 
+*/
 #include <errno.h>                                                              
 #include <pthread.h>                                                            
 #include <stdio.h>                                                              
