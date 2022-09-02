@@ -13,7 +13,6 @@ ThreadFunc2 -- stores string(char array ) data.
 
 using namespace std;
 pthread_key_t tsdKey1;
-pthread_key_t tsdKey2;
 
 void TsdDestruct(void* param) {
      free(param);
@@ -21,6 +20,7 @@ void TsdDestruct(void* param) {
      pthread_setspecific( tsdKey2, NULL );
 }
 
+// Below thread stores the int data type as TSD for the key tsdKey1
 void* ThreadFunc1(void* param) {
 	int i = 0;
 	int* data = nullptr;
@@ -41,6 +41,7 @@ void* ThreadFunc1(void* param) {
 	return data;
 }
 
+// Below thread stores the string or char* data type as TSD for the same key i.e tsdKey1
 void* ThreadFunc2(void* param) {
 	int i = 0;
 	char* data = nullptr;
@@ -66,12 +67,9 @@ void* ThreadFunc2(void* param) {
 int main() {
 	pthread_t threadId1,threadId2;
 	pthread_key_create(&tsdKey1,TsdDestruct);
-	pthread_key_create(&tsdKey2,TsdDestruct);
 	pthread_attr_t attr;
-	pthread_attr_init(&attr);
-	int stackSize = -1;
-	pthread_attr_setstacksize(&attr,1024*8);
-	printf("\nstack size in thread1 - %d",stackSize);
+	pthread_attr_init(&attr); // initializing the thread attribute 
+	pthread_attr_setstacksize(&attr,1024*8); // This is just setting the stack size to thread , nothing to do with TSD 
 	
 	int id1 = pthread_create(&threadId1,&attr,ThreadFunc1,nullptr);
 	int id2 = pthread_create(&threadId2,&attr,ThreadFunc2,nullptr);
