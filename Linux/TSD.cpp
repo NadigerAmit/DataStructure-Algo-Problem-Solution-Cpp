@@ -17,7 +17,6 @@ pthread_key_t tsdKey1;
 void TsdDestruct(void* param) {
      free(param);
      pthread_setspecific( tsdKey1, NULL );
-     pthread_setspecific( tsdKey2, NULL );
 }
 
 // Below thread stores the int data type as TSD for the key tsdKey1
