@@ -23,7 +23,6 @@ void TsdDestruct(void* param) {
 void* ThreadFunc1(void* param) {
 	int i = 0;
 	int* data = nullptr;
-	//printf("\nstack size in thread1 - %d",pthread_attr_getstacksize(pthread_self()));
 	while(i<500) {
 		i++;
 		data = (int*)pthread_getspecific(tsdKey1);
@@ -44,7 +43,6 @@ void* ThreadFunc1(void* param) {
 void* ThreadFunc2(void* param) {
 	int i = 0;
 	char* data = nullptr;
-	//printf("\nstack size in thread 2 - %d",pthread_attr_getstacksize(pthread_self()));
 	while(i<500) {
 		i++;
 		data = (char*)pthread_getspecific(tsdKey1);
@@ -57,7 +55,6 @@ void* ThreadFunc2(void* param) {
 		    pthread_setspecific(tsdKey1,(void *)data);
 	    }
 	    printf("tsd data = %s in thread %u-  \n",data,pthread_self());
-	   //printf("%s\n",data);
 		sched_yield();
 	}
 	return (void*)data;
