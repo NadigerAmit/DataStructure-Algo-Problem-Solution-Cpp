@@ -3,6 +3,16 @@ int main(int argc, char *argv[], char *envp[])
 
 The main() function parameter envp is not specified by POSIX but is widely supported.
 
+he optional envp parameter is an array of strings representing the variables set in the user's environment.
+This array is terminated by a NULL entry. It can be declared as an array of pointers to char (char *envp[]) or
+as a pointer to pointers to char (char **envp). If your program uses wmain instead of main, use the wchar_t data type instead of char.
+
+The environment block passed to main and wmain is a "frozen" copy of the current environment. 
+If you later change the environment by making a call to putenv or _wputenv, the current environment 
+(as returned by getenv or _wgetenv and the _environ or _wenviron variable) will change, but the block pointed to by envp won't change. 
+For more information on how to suppress environment processing, see Customize C++ command-line processing. 
+The envp argument is compatible with the C89 standard, but not with C++ standards.
+
 It is an alternative method of accessing the environment list is to declare a third argument to the main() function:
 This argument can then be treated in the same way as environ, with the difference that its scope is local to main(). 
 Although this feature is widely implemented on UNIX systems, its use should be avoided since, in addition to the scope limitation, it is not specified in SUSv3.
