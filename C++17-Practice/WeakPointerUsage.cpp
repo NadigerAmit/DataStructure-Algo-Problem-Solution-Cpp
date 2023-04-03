@@ -72,3 +72,17 @@ int main() {
     std::cout<<"ptr->leftPtr->parentPtr reference count = "<<ptr->leftPtr->parentPtr.lock().use_count()<<std::endl;
     return 0;
 }
+/*
+Op =>
+Contructor
+Contructor
+Contructor
+ptr reference count = 1
+ptr->leftPtr reference count = 1
+ptr->rightPtr reference count = 1
+ptr->rightPtr->parentPtr reference count = 2
+ptr->leftPtr->parentPtr reference count = 2
+Destructor
+Destructor
+Destructor
+    */
