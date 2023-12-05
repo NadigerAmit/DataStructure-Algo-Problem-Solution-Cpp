@@ -5,6 +5,8 @@ C++ is a general-purpose programming language which has evolved over the years a
 ## About Me
 I am Amit Nadiger, currently working as Software Engineering manager in Japan.
 
+![alt text](https://drive.google.com/file/d/1mLph2Qr-oNPXYt2qOgi5PRBgH91sWQJx/view?usp=drive_link) 
+
 https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
 
 ### Prerequisites
