@@ -2,7 +2,7 @@
 #include<iostream>
 #include <unordered_map> 
 #include<string>
-#include <bits/stdc++.h> 
+#include <sstream> 
 using namespace std;
 
 // Prints frequencies of individual words in str 
