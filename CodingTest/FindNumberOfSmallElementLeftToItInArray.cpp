@@ -21,9 +21,27 @@ There are no smaller elements to the right of 1
 #include<iostream>
 #include<cstring>
 #include <vector>
-
 using namespace std;
+
 /////////////////////////////////////////////////////////////////////////////////
+#include <set>
+#include<algorithm>
+using namespace std;
+vector<int> countSmallerUsingSet(vector<int>& nums) {
+    vector<int> result;
+    multiset<int> orderedSet;
+
+    // Traverse from right to left
+    for (auto it = nums.rbegin(); it != nums.rend(); ++it) {
+        // Insert the current element into the multiset
+        orderedSet.insert(*it);
+
+        // Count how many elements in orderedSet are smaller than *it
+        result.push_back(distance(orderedSet.begin(), orderedSet.lower_bound(*it)));
+    }
+// distance(orderedSet.begin(), orderedSet.lower_bound(*it)) gives the count of elements smaller than *it in the multiset.
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
 // Using vector 
 vector<int> countSmaller(vector<int> v) {
     vector<int> result(v.size(),0);
