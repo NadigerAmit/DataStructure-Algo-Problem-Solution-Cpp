@@ -20,9 +20,28 @@ There are no smaller elements to the right of 1
 #include<stdio.h>
 #include<iostream>
 #include<cstring>
+#include <vector>
+
 using namespace std;
-
-
+/////////////////////////////////////////////////////////////////////////////////
+// Using vector 
+vector<int> countSmaller(vector<int> v) {
+    vector<int> result(v.size(),0);
+    int count = 0;
+    result[v.size()-1] = 0;
+    
+    for(int i = v.size()-1; i>=0;i--) {
+        result[i] = 0;
+        for(int j = i; j<v.size();j++) {
+            if(v[i] > v[j]) {
+                result[i]++;
+                cout<< result[i]<<endl;
+            } 
+        }
+    }
+    return result;
+}
+/////////////////////////////////////////////////////////////////////////////////
 void printArray(int* array,int size) {
 	if(array == nullptr) return ; 
 	for(int i = 0;i<size;i++) {
