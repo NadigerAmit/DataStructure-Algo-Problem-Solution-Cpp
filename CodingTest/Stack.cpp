@@ -49,7 +49,7 @@ void customStack<T>::push(T e) {
 
 template<typename T>
 void customStack<T>::pop() {
-    int i = items.back();
+    T i = items.back();
     items.pop_back();
     s.erase(i);
 }
@@ -105,3 +105,25 @@ int main()
     cout<<"Max "<<st.max()<<endl;
     cout<<"top "<<st.top()<<endl;
 }
+/*
+Jai Shree Ram-----------------
+Min 2
+Max 15
+top 2
+-----------------
+Min 3
+Max 15
+top 15
+-----------------
+Min 3
+Max 10
+top 5
+-----------------
+Min 0
+Max 10
+top 0
+Min 0
+Max 52
+top 52
+Destructor is called
+*/
