@@ -16,14 +16,6 @@ public:
 	}
 };
 
-class Compare {
-public:
-    bool operator() (isPair& a, isPair& b) {
-        if(strcmp(a.second.c_str(),b.second.c_str())>0) return true;
-	    return false;
-    }
-};
-
 void func(int* p) {
 	while(1) {
 		printf("\nFUNC %d",*p);
